@@ -51,6 +51,85 @@
     z-index: 1;
 }
 
+/* Dekoracyjne ikony jedzenia wokół tekstu hero */
+.hero-food-decorations {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.hero-food-icon {
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.15;
+    filter: drop-shadow(0 4px 15px rgba(99, 209, 162, 0.3));
+    animation: floatHeroFood 8s ease-in-out infinite;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero-food-icon:hover {
+    opacity: 0.25;
+    transform: scale(1.1);
+}
+
+.hero-food-icon-1 {
+    top: 10%;
+    left: -5%;
+    animation-delay: 0s;
+}
+
+.hero-food-icon-2 {
+    top: 30%;
+    right: -8%;
+    animation-delay: 2s;
+    font-size: 3.5rem;
+}
+
+.hero-food-icon-3 {
+    bottom: 30%;
+    left: -3%;
+    animation-delay: 4s;
+    font-size: 3.8rem;
+}
+
+.hero-food-icon-4 {
+    bottom: 10%;
+    right: -5%;
+    animation-delay: 6s;
+    font-size: 4.2rem;
+}
+
+@keyframes floatHeroFood {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+    66% {
+        transform: translateY(-10px) rotate(-10deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-food-icon {
+        font-size: 2.5rem;
+        opacity: 0.1;
+    }
+    
+    .hero-food-icon-2,
+    .hero-food-icon-3,
+    .hero-food-icon-4 {
+        display: none;
+    }
+}
+
 .hero-content h1 {
     font-size: 3rem;
     line-height: 1.2;
@@ -126,6 +205,7 @@
         inset 0 0 20px rgba(0, 0, 0, 0.3),
         0 0 40px rgba(99, 209, 162, 0.2);
     position: relative;
+    z-index: 2;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -195,6 +275,186 @@
     display: block;
     border-radius: 24px;
     background: #000;
+}
+
+/* Animowane ikony jedzenia wokół telefonu */
+.food-icons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.food-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    opacity: 0;
+    animation: fadeInFood 1s ease-out forwards, floatFood 6s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(99, 209, 162, 0.4));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.food-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 6px 20px rgba(99, 209, 162, 0.6));
+}
+
+/* Pozycjonowanie ikon jedzenia wokół telefonu */
+.food-icon-1 {
+    top: 5%;
+    left: 10%;
+    animation-delay: 1s, 1s;
+}
+
+.food-icon-2 {
+    top: 15%;
+    right: 5%;
+    animation-delay: 1.2s, 1.2s;
+}
+
+.food-icon-3 {
+    top: 30%;
+    left: 0%;
+    animation-delay: 1.4s, 1.4s;
+}
+
+.food-icon-4 {
+    top: 45%;
+    right: -5%;
+    animation-delay: 1.6s, 1.6s;
+}
+
+.food-icon-5 {
+    bottom: 45%;
+    left: -5%;
+    animation-delay: 1.8s, 1.8s;
+}
+
+.food-icon-6 {
+    bottom: 30%;
+    right: 0%;
+    animation-delay: 2s, 2s;
+}
+
+.food-icon-7 {
+    bottom: 15%;
+    left: 5%;
+    animation-delay: 2.2s, 2.2s;
+}
+
+.food-icon-8 {
+    bottom: 5%;
+    right: 10%;
+    animation-delay: 2.4s, 2.4s;
+}
+
+.food-icon-9 {
+    top: 50%;
+    left: -8%;
+    animation-delay: 2.6s, 2.6s;
+}
+
+.food-icon-10 {
+    top: 50%;
+    right: -8%;
+    animation-delay: 2.8s, 2.8s;
+}
+
+.food-icon-11 {
+    top: 20%;
+    left: 50%;
+    animation-delay: 3s, 3s;
+}
+
+.food-icon-12 {
+    bottom: 20%;
+    left: 50%;
+    animation-delay: 3.2s, 3.2s;
+}
+
+/* Animacje dla ikon jedzenia */
+@keyframes fadeInFood {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes floatFood {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-20px) rotate(3deg);
+    }
+}
+
+/* Specjalne pozycjonowanie dla ikon 11 i 12 (środek) */
+.food-icon-11,
+.food-icon-12 {
+    transform: translateX(-50%);
+}
+
+.food-icon-11 {
+    animation: fadeInFood 1s ease-out 3s forwards, floatFoodCenter 6s ease-in-out 3s infinite;
+}
+
+.food-icon-12 {
+    animation: fadeInFood 1s ease-out 3.2s forwards, floatFoodCenter 6s ease-in-out 3.2s infinite;
+}
+
+@keyframes floatFoodCenter {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(-50%) translateY(-20px) rotate(3deg);
+    }
+}
+
+/* Responsywność dla ikon jedzenia */
+@media (max-width: 768px) {
+    .food-icon {
+        font-size: 1.8rem;
+    }
+    
+    .food-icon-1,
+    .food-icon-2,
+    .food-icon-3,
+    .food-icon-4,
+    .food-icon-5,
+    .food-icon-6,
+    .food-icon-7,
+    .food-icon-8 {
+        opacity: 0.6;
+    }
+    
+    .food-icon-9,
+    .food-icon-10,
+    .food-icon-11,
+    .food-icon-12 {
+        opacity: 0.4;
+    }
 }
 
 /* ===== SECTION HEADERS ===== */
