@@ -1,0 +1,11 @@
+/* ============================================
+   STYLES.CSS - Główny plik importujący moduły
+   ============================================ */
+
+/* Import modułów CSS w odpowiedniej kolejności */
+@import url('base.css');
+@import url('animations.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('sections.css');
+@import url('mobile.css');

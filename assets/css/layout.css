@@ -1,0 +1,84 @@
+/* ============================================
+   LAYOUT.CSS - Container, Gridy, Layouty
+   ============================================ */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 60px;
+    }
+}
+
+/* Grid layouts */
+.hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .hero-grid {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    
+    .hero-content, .hero-image {
+        flex: 1;
+    }
+}
+
+.problem-grid,
+.solution-grid,
+.features-grid,
+.howitworks-grid,
+.technology-grid,
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+@media (min-width: 900px) {
+    .problem-grid,
+    .solution-grid,
+    .technology-grid,
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .howitworks-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.content-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (min-width: 900px) {
+    .content-body {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
